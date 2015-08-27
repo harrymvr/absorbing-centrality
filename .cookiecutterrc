@@ -1,0 +1,31 @@
+# This file exists so you can easily regenerate your project.
+#
+# Unfortunatelly cookiecutter can't use this right away so
+# you have to copy this file to ~/.cookiecutterrc
+
+default_context:
+
+    c_extension_optional:      'no'
+    c_extension_support:       'no'
+    codacy:                    'no'
+    codeclimate:               'no'
+    codecov:                   'no'
+    command_line_interface:    'no'
+    coveralls:                 'yes'
+    distribution_name:         'absorbing_centrality'
+    email:                     'cmav@bu.edu'
+    full_name:                 'Charalampos Mavroforakis'
+    github_username:           'harrymvr'
+    landscape:                 'no'
+    package_name:              'absorbing_centrality'
+    project_name:              'Absorbing Random-Walk Centrality'
+    project_short_description: ''
+    release_date:              '2015-08-31'
+    repo_name:                 'absorbing-centrality'
+    scrutinizer:               'no'
+    sphinx_theme:              'readthedocs'
+    test_matrix_configurator:  'no'
+    test_runner:               'pytest'
+    version:                   '0.1'
+    website:                   'cs-people.bu.edu/cmav'
+    year:                      '2015'
