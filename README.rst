@@ -2,7 +2,7 @@
 Absorbing Random-Walk Centrality
 ================================
 
-    |version| |docs| |travis| |coveralls|
+    |docs| |travis| |coveralls|
     
 
 .. |docs| image:: https://readthedocs.org/projects/absorbing-centrality/badge/?style=flat
@@ -20,10 +20,7 @@ Absorbing Random-Walk Centrality
 
 .. |coveralls| image:: https://coveralls.io/repos/harrymvr/absorbing-centrality/badge.svg?branch=master&service=github
     :alt: Coverage Status
-    :target: https://coveralls.io/r/harrymvr/absorbing-centrality
-
-
-
+    :target: https://coveralls.io/github/harrymvr/absorbing-centrality?branch=master
 
 
 .. |version| image:: https://img.shields.io/pypi/v/absorbing_centrality.svg?style=flat
