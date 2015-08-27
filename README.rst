@@ -2,7 +2,7 @@
 Absorbing Random-Walk Centrality
 ================================
 
-    |docs| |travis| |coveralls|
+|docs| |travis| |coveralls|
     
 
 .. |docs| image:: https://readthedocs.org/projects/absorbing-centrality/badge/?style=flat
