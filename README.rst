@@ -2,16 +2,8 @@
 Absorbing Random-Walk Centrality
 ================================
 
-.. list-table::
-    :stub-columns: 1
-
-    * - docs
-      - |docs|
-    * - tests
-      - | |travis| |appveyor| |requires|
-        | |coveralls|
-    * - package
-      - |version| |downloads| |wheel| |supported-versions| |supported-implementations|
+    |version| |docs| |travis| |coveralls|
+    
 
 .. |docs| image:: https://readthedocs.org/projects/absorbing-centrality/badge/?style=flat
     :target: https://readthedocs.org/projects/absorbing-centrality
