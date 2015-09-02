@@ -22,7 +22,7 @@ source_suffix = '.rst'
 master_doc = 'index'
 project = u'Absorbing Random-Walk Centrality'
 year = u'2015'
-author = u'\x14Charalampos Mavroforakis'
+author = u'Charalampos Mavroforakis'
 copyright = '{0}, {1}'.format(year, author)
 version = release = u'1.0'
 # on_rtd is whether we are on readthedocs.org
