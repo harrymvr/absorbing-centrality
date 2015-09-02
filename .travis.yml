@@ -1,33 +1,39 @@
 language: python
-python: 2.7
+
+python: 
+  - "2.7"
+  - "3.4"
+
+# Setup miniconda
+
 sudo: false
 env:
   global:
     LD_PRELOAD=/lib/x86_64-linux-gnu/libSegFault.so
-  matrix:
-    - TOXENV=check
-    - TOXENV=2.6,coveralls
-    - TOXENV=2.6-nocover
-    - TOXENV=2.7,coveralls
-    - TOXENV=2.7-nocover
-    - TOXENV=3.3,coveralls
-    - TOXENV=3.3-nocover
-    - TOXENV=3.4,coveralls
-    - TOXENV=3.4-nocover
-    - TOXENV=pypy,coveralls
-    - TOXENV=pypy-nocover
 before_install:
   - python --version
   - virtualenv --version
   - pip --version
   - uname -a
   - lsb_release -a
+  - wget http://repo.continuum.io/miniconda/Miniconda-latest-Linux-x86_64.sh -O miniconda.sh
+  - chmod +x miniconda.sh
+  - ./miniconda.sh -b -p $HOME/miniconda
+  - export PATH=/home/travis/miniconda/bin:$PATH
+  - hash -r
+  - conda config --set always_yes yes --set changeps1 no
+  - conda update -q conda
+  - conda config --set ssl_verify false
+  - conda info -a
 install:
-  - pip install tox
+  - conda install python=$TRAVIS_PYTHON_VERSION numpy=1.9.2 scipy=0.16 networkx=1.9.1
+  - conda install pip setuptools nose
+  - pip install -U coveralls
+  - python setup.py install
 script:
-  - tox -v
+    - nosetests --with-coverage --cover-package=absorbing_centrality --logging-level=INFO
 notifications:
   email:
     on_success: never
-    on_failure: always
+    on_failure: never
 
