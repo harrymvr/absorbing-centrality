@@ -31,9 +31,9 @@ setup(
     author='Charalampos Mavroforakis',
     author_email='cmav@bu.edu',
     url='https://github.com/harrymvr/absorbing-centrality',
-    packages=find_packages('src'),
-    package_dir={'': 'src'},
-    py_modules=[splitext(basename(path))[0] for path in glob('src/*.py')],
+    packages=find_packages('absorbing_centrality'),
+    package_dir={'': 'absorbing_centrality'},
+    py_modules=[splitext(basename(path))[0] for path in glob('absorbing_centrality/*.py')],
     include_package_data=True,
     zip_safe=False,
     classifiers=[
@@ -59,6 +59,9 @@ setup(
     ],
     install_requires=[
         # eg: 'aspectlib==1.1.1', 'six>=1.7',
+        'networkx==1.9.1',
+        'numpy>=1.9.2',
+        'scipy>=0.16'
     ],
     extras_require={
         # eg:

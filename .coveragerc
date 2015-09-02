@@ -1,9 +1,9 @@
 [paths]
-source = src
+source = absorbing_centrality
 
 [run]
 branch = True
-source = src
+source = absorbing_centrality
 parallel = true
 
 [report]

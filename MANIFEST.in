@@ -1,6 +1,6 @@
 graft docs
 graft examples
-graft src
+graft absorbing_centrality
 graft ci
 graft tests
 
