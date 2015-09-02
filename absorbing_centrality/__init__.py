@@ -8,3 +8,5 @@ from .graph_helpers import (absorbing_centrality,
                             is_canonical, keep_largest_component, SUPER_NODE,
                             update_fundamental_matrix)
 from .exceptions import CanonicalizationError
+
+__version__ = '0.1'
