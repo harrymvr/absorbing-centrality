@@ -202,12 +202,11 @@ def compute_personalized_transition_matrix(G, alpha=0.85,
 
 
 def compute_transition_matrix(G):
-    """Builds the random transition matrix P. The probability of going from
+    r"""Builds the random transition matrix P. The probability of going from
     node `i` to node`j` is equal to:
 
     .. math::
-
-        P_{i,j} = \frac{1}{\text{degree}(i)}
+       P_{i,j} = \frac{1}{\text{degree}(i)}
 
     Parameters
     ----------

@@ -1,24 +1,31 @@
 absorbing_centrality
 ====================
+.. automodule:: absorbing_centrality
 
-.. automodule:: absorbing_centrality.algorithms
-   :members:
-   :undoc-members:
-.. autosummary::
-   
 
-Detailed description
---------------------
+Computing the centrality of a set
+----------------------------------
+.. autofunction:: absorbing_centrality
+.. autofunction:: absorbing_centrality_inversion
 
-.. automember:: absorbing_centrality
-.. automember:: absorbing_centrality_inversion
-.. automember:: add_supernode
-.. automember:: canonical_relabel_nodes
-.. automember:: compute_fundamental_matrix
-.. automember:: compute_personalized_transition_matrix
-.. automember:: compute_transition_matrix
-.. automember:: has_supernode
-.. automember:: is_canonical
-.. automember:: keep_largest_component
-.. automember:: update_fundamental_matrix
+Team-selection algorithms
+-------------------------
+.. autofunction:: greedy_team
+
+Matrix-related functions
+------------------------
+.. autofunction:: compute_fundamental_matrix
+.. autofunction:: compute_transition_matrix
+.. autofunction:: compute_personalized_transition_matrix
+.. autofunction:: update_fundamental_matrix
+
+Preprocessing the graph
+-----------------------
+.. autofunction:: canonical_relabel_nodes
+.. autofunction:: is_canonical
+.. autofunction:: add_supernode
+.. autofunction:: has_supernode
+
+Exceptions
+----------
 .. autoexception:: CanonicalizationError
