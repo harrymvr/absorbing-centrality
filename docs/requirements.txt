@@ -1,3 +1,6 @@
 sphinx
 sphinxcontrib-napoleon
+numpy
+scipy
+networkx
 -e .
