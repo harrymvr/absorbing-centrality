@@ -15,7 +15,7 @@
 """
 from __future__ import division
 
-from sys import maxint
+from itertools import chain
 
 from networkx import (DiGraph, adjacency_matrix, connected_component_subgraphs,
                       relabel_nodes)
@@ -26,6 +26,23 @@ from scipy.sparse.linalg import inv as spinv, spilu
 from .exceptions import CanonicalizationError
 
 SUPER_NODE = '_super_'
+
+try:
+    dict.iteritems
+except AttributeError:
+    # Python 3
+    def itervalues(d):
+        return iter(d.values())
+
+    def iteritems(d):
+        return iter(d.items())
+else:
+    # Python 2
+    def itervalues(d):
+        return d.itervalues()
+
+    def iteritems(d):
+        return d.iteritems()
 
 
 def keep_largest_component(G):
@@ -102,7 +119,7 @@ def canonical_relabel_nodes(G):
     mapping = dict(zip(G.nodes(), range(1, n + 1)))
     G_prime = relabel_nodes(G, mapping, copy=True)
     G_prime.graph['canonical_map'] = mapping.copy()
-    G_prime.graph['label_map'] = dict((v, k) for k, v in mapping.iteritems())
+    G_prime.graph['label_map'] = dict((v, k) for k, v in iteritems(mapping))
     return G_prime
 
 
@@ -258,10 +275,13 @@ def _fast_update_fundamental_rows(P, F, row=0, row_previous=0):
     n_P = P.shape[0]
     n_F = F.shape[0]
     # These are the rows of the matrix P that were used in order to compute F
-    previous_non_absorbing = range(row_previous) + range(row_previous + 1, n_P)
+    previous_non_absorbing = chain(range(row_previous),
+                                   range(row_previous + 1, n_P))
+    previous_non_absorbing = list(previous_non_absorbing)
     # Re-order the transition matrix P without row and column `row_previous`,
     # such that the row (and column) that is absorbing will be first.
-    reordering = [row] + range(row) + range(row + 1, n_F)
+    reordering = [row] + list(chain(range(row),
+                                    range(row + 1, n_F)))
     P_non_absorbing = P[previous_non_absorbing, :][:, previous_non_absorbing]
     F_reordered = F.take(reordering, axis=0).take(reordering, axis=1)
     U = csc_matrix((n_F, 1))
@@ -307,10 +327,13 @@ def _fast_update_fundamental_columns(P, F, col=0, col_previous=0):
     n_F = F.shape[0]
 
     # These are the rows of the matrix P that were used in order to compute FP
-    previous_round_indices = range(col_previous) + range(col_previous + 1, n_P)
+    previous_round_indices = chain(range(col_previous),
+                                   range(col_previous + 1, n_P))
+    previous_round_indices = list(previous_round_indices)
     # Re-order the transition matrix P without row and column `col_previous`,
     # such that the col (and row) that is absorbing will be first.
-    current_indices = [col] + range(col) + range(col + 1, n_F)
+    current_indices = [col] + list(chain(range(col),
+                                         range(col + 1, n_F)))
     P_non_absorbing = P[previous_round_indices, :][:, previous_round_indices]
     # F is the result of the _fast_update_fundamental_rows(), so it is already
     # re-arranged in the way we want it.
@@ -373,22 +396,24 @@ def update_fundamental_matrix(P, F, next, previous, previous_index=0,
     n_F = F.shape[0]
     if node_order is None:
         node_order = arange(n_P)
-        node_order = node_order[range(previous) + range(previous + 1, n_P)]
+        node_order = node_order[list(chain(range(previous),
+                                           range(previous + 1, n_P)))]
         previous_index = previous
     if type(node_order) is list:
         node_order = array(node_order)
     # We need to find which row/column corresponds to the node `next`
     next_index = argwhere(array(node_order) == next)[0]
-    node_order = node_order[range(next_index) + range(next_index + 1, n_F)]
+    node_order = node_order[list(chain(range(next_index),
+                                       range(next_index + 1, n_F)))]
     row_update = _fast_update_fundamental_rows(P, F, row=next_index,
                                                row_previous=previous_index)
     col_update = _fast_update_fundamental_columns(P, row_update,
                                                   col=next_index,
                                                   col_previous=previous_index)
-    P_updated = P[range(previous_index) +
-                  range(previous_index + 1, P.shape[0]), :] \
-                 [:, range(previous_index) +
-                  range(previous_index + 1, P.shape[0])]
+    P_updated = P[list(chain(range(previous_index),
+                             range(previous_index + 1, P.shape[0]))), :] \
+                 [:, list(chain(range(previous_index),
+                                range(previous_index + 1, P.shape[0])))]
     F_updated = col_update[1:, 1:]
     node_order_updated = node_order.tolist()
     return P_updated, F_updated, node_order_updated, next_index
@@ -580,14 +605,14 @@ def absorbing_centrality(G, team, query=None, P=None, epsilon=1e-5,
     non_absorbing_nodes = [v - 1 for v in G if v not in team_ind]
     P_non_absorbing = P[non_absorbing_nodes, :][:, non_absorbing_nodes]
 
-    step = maxint
+    step = epsilon
     s = zeros((G.number_of_nodes(), 1))
     s[-1] = 1
     X_current = s[non_absorbing_nodes]
     # Don't count the first jump, from the supernode to the queries
     score = 0
     i = 1
-    while step > epsilon:
+    while step >= epsilon :
         X_current = P_non_absorbing.T.dot(X_current)
         # Disregard the steps from the supernode to the queries
         step = X_current.sum() - X_current[-1, 0]
