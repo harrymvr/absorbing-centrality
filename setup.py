@@ -32,8 +32,8 @@ setup(
     author_email='cmav@bu.edu',
     url='https://github.com/harrymvr/absorbing-centrality',
     packages=find_packages('absorbing_centrality'),
-    package_dir={'': 'absorbing_centrality'},
-    py_modules=[splitext(basename(path))[0] for path in glob('absorbing_centrality/*.py')],
+    # package_dir={'': 'absorbing_centrality'},
+    # py_modules=[splitext(basename(path))[0] for path in glob('absorbing_centrality/*.py')],
     include_package_data=True,
     zip_safe=False,
     classifiers=[
