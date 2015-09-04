@@ -4,7 +4,7 @@ Welcome to Absorbing Random-Walk Centrality's documentation!
 Contents:
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
 
    readme
    installation

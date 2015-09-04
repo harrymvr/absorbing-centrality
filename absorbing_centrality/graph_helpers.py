@@ -474,8 +474,8 @@ def absorbing_centrality_inversion(G, team, query=None, with_restarts=False,
         The team of nodes, whose centrality to compute.
 
     query : list, optional
-    The set of query nodes to use for the random walks. If None (default) or
-    empty, the query set is equal to the set of all nodes in the graph.
+        The set of query nodes to use for the random walks. If None (default)
+        or empty, the query set is equal to the set of all nodes in the graph.
 
     with_restarts : bool, optional
         If True, restarts the random surfer to the the query set (default is
@@ -490,7 +490,10 @@ def absorbing_centrality_inversion(G, team, query=None, with_restarts=False,
     score : float
         The absorbing centrality score.
 
-    Note: Both `team` and `query` should  use the original node names.
+
+    Note
+    ----
+    Both `team` and `query` should  use the original node names.
 
     """
     if not is_canonical(G):
@@ -515,7 +518,7 @@ def absorbing_centrality_inversion(G, team, query=None, with_restarts=False,
 def absorbing_centrality(G, team, query=None, P=None, epsilon=1e-5,
                          max_iterations=None, with_restarts=False,
                          alpha=0.85):
-    """Compute the absorbing centrality of a team. The algorithm works by
+    r"""Compute the absorbing centrality of a team. The algorithm works by
     iteratively computing the powers of the non-absorbing submatrix of the
     transition matrix P.
 
@@ -528,8 +531,8 @@ def absorbing_centrality(G, team, query=None, P=None, epsilon=1e-5,
         The team of nodes, whose centrality to compute.
 
     query : list, optional
-    The set of query nodes to use for the random walks. If None (default) or
-    empty, the query set is equal to the set of all nodes in the graph.
+        The set of query nodes to use for the random walks. If None (default)
+        or empty, the query set is equal to the set of all nodes in the graph.
 
     P : matrix, optional
         The precomputed transition matrix of the graph (default is None).
@@ -556,7 +559,10 @@ def absorbing_centrality(G, team, query=None, P=None, epsilon=1e-5,
     score : float
         The absorbing centrality score.
 
-    Note: Both `team` and `query` should  use the original node names.
+
+    Note
+    ----
+    Both `team` and `query` should  use the original node names.
 
     """
     if not is_canonical(G):

@@ -3,7 +3,6 @@ from __future__ import unicode_literals
 
 import sys, os
 
-sys.path.append(os.path.abspath('.'))
 sys.path.append(os.path.abspath('..'))
 
 extensions = [
@@ -14,6 +13,8 @@ extensions = [
     'sphinx.ext.intersphinx',
     'sphinx.ext.mathjax',
 ]
+autosummary_generate = True
+
 if os.getenv('SPELLCHECK'):
     extensions += 'sphinxcontrib.spelling',
     spelling_show_suggestions = True
@@ -59,3 +60,6 @@ intersphinx_mapping = {
     'numpy': ('http://docs.scipy.org/doc/numpy','http://docs.scipy.org/doc/numpy/objects.inv'),
     'scipy': ('http://docs.scipy.org/doc/scipy/reference','http://docs.scipy.org/doc/scipy/reference/objects.inv'),
 }
+
+add_module_names = False
+show_authors = False
