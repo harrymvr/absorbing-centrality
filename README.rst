@@ -31,9 +31,11 @@ https://absorbing-centrality.readthedocs.org/
 Development
 -----------
 
-To run the all tests run::
+To run the all tests run
 
-    nosetests
+::
+
+    tox
 
 Distributed under the Open Source Initiative (ISC) license; see LICENSE
 
