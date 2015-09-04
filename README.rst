@@ -46,10 +46,10 @@ Distributed under the Open Source Initiative (ISC) license; see LICENSE
    Michael Mathioudakis <michael.mathioudakis@aalto.fi>
    Aristides Gionis <aristides.gionis@aalto.fi>
 
-
-.. |docs| image:: https://readthedocs.org/projects/absorbing-centrality/badge/?style=flat
-    :target: https://readthedocs.org/projects/absorbing-centrality
-    :alt: Documentation Status
+    
+.. |docs| image:: https://readthedocs.org/projects/absorbing-centrality/badge/?version=latest
+    :target: https://absorbing-centrality.readthedocs.org/en/latest/
+    :alt: Documentation Statu
 
 .. |travis| image:: https://travis-ci.org/harrymvr/absorbing-centrality.svg?branch=master
     :alt: Travis-CI Build Status
