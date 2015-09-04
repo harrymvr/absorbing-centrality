@@ -15,7 +15,6 @@
 
 from __future__ import division
 
-from sys import maxint
 from time import clock
 
 from networkx.algorithms.link_analysis import pagerank_scipy
@@ -112,7 +111,7 @@ def greedy_team(G, k, query=None, candidates=None, fast_select=False,
     candidate_values = [(c, pagerank_centrality[c]) for c in candidates]
     pagerank_candidates = [c for c, value in sorted(candidate_values,
                            key=lambda tup: tup[1], reverse=True)[:5]]
-    round_min = maxint
+    round_min = -1
     round_best = pagerank_candidates[0]
     for pagerank_candidate in pagerank_candidates:
         non_absorbing_nodes = [i for i in arange(n)
@@ -121,7 +120,7 @@ def greedy_team(G, k, query=None, candidates=None, fast_select=False,
         F = compute_fundamental_matrix(P_abs, fast=True)
         row_sums = F.sum(axis=1)
         score = row_sums[-1].sum() - F[-1, -1]
-        if score < round_min:
+        if score < round_min or round_min == -1:
             round_min = score
             round_best = pagerank_candidate
     best_candidate = round_best
@@ -146,7 +145,7 @@ def greedy_team(G, k, query=None, candidates=None, fast_select=False,
     nodes_to_check = candidates
     absorbing_nodes = [best_candidate]
     while len(solution_set) < k:
-        round_min = maxint
+        round_min = -1
         round_best_member = -1
         round_start = clock()
         for c in nodes_to_check:
@@ -165,7 +164,7 @@ def greedy_team(G, k, query=None, candidates=None, fast_select=False,
             row_sums = F_new.sum(axis=1)
             total_steps = row_sums[-1].sum() - F_new[-1, -1]
             round_gain[c] = best_scores[current_round - 1] - total_steps
-            if total_steps < round_min:
+            if total_steps < round_min or round_min == -1:
                 round_best_member = c
                 round_min = total_steps
         absorbing_nodes.append(round_best_member)

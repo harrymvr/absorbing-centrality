@@ -1,4 +1,7 @@
 from __future__ import division
+
+from itertools import chain
+
 from numpy.random import RandomState
 from numpy import arange
 from networkx.generators import karate_club_graph, grid_2d_graph
@@ -50,7 +53,9 @@ def test_update_fundamental_matrix():
     order = arange(P.shape[0])
     previous_index = prng.choice(order, 1)
     previous_node = order[previous_index]
-    non_absorbing_nodes = range(previous_index) + range(previous_index + 1, n)
+    non_absorbing_nodes = chain(range(previous_index),
+                                range(previous_index + 1, n))
+    non_absorbing_nodes = list(non_absorbing_nodes)
     order = order[non_absorbing_nodes]
     F = compute_fundamental_matrix(P[non_absorbing_nodes, :]
                                    [:, non_absorbing_nodes])
