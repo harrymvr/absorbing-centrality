@@ -4,6 +4,46 @@ Absorbing Random-Walk Centrality
 
 |docs| |travis| |coveralls|
     
+This is an implementation of the absorbing random-walk centrality measure for 
+nodes in graphs.
+
+To cite this work, use
+
+::
+
+   Mavroforakis, Charalampos, Michael Mathioudakis, and Aristides Gionis.
+   "Absorbing random-walk centrality: Theory and algorithms"
+   Data Mining (ICDM), 2015 IEEE International Conference on. IEEE, 2015.
+
+
+Installation
+------------
+
+::
+
+   pip install git+https://github.com/harrymvr/absorbing-centrality#Egg=absorbing_centrality
+
+Documentation
+-------------
+
+https://absorbing-centrality.readthedocs.org/
+
+Development
+-----------
+
+To run the all tests run::
+
+    nosetests
+
+Distributed under the Open Source Initiative (ISC) license; see LICENSE
+
+::
+
+   Copyright (c) 2015 absorbing-centrality contributors
+   Charalampos Mavroforakis <cmav@bu.edu>
+   Michael Mathioudakis <michael.mathioudakis@aalto.fi>
+   Aristides Gionis <aristides.gionis@aalto.fi>
+
 
 .. |docs| image:: https://readthedocs.org/projects/absorbing-centrality/badge/?style=flat
     :target: https://readthedocs.org/projects/absorbing-centrality
@@ -43,24 +83,3 @@ Absorbing Random-Walk Centrality
     :alt: Supported imlementations
     :target: https://pypi.python.org/pypi/absorbing_centrality
 
-
-* Free software: ISC license
-
-Installation
-============
-
-::
-
-    pip install absorbing_centrality
-
-Documentation
-=============
-
-https://absorbing-centrality.readthedocs.org/
-
-Development
-===========
-
-To run the all tests run::
-
-    tox
