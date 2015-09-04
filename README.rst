@@ -41,9 +41,9 @@ Distributed under the Open Source Initiative (ISC) license; see LICENSE
 
 ::
 
-   Copyright (c) 2015 absorbing-centrality contributors
-   Charalampos Mavroforakis <cmav@bu.edu>
-   Michael Mathioudakis <michael.mathioudakis@aalto.fi>
+   Copyright (c) 2015, absorbing-centrality contributors,
+   Charalampos Mavroforakis <cmav@bu.edu>,
+   Michael Mathioudakis <michael.mathioudakis@aalto.fi>,
    Aristides Gionis <aristides.gionis@aalto.fi>
 
     
