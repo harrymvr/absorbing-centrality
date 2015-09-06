@@ -9,4 +9,10 @@ parallel = true
 [report]
 show_missing = true
 precision = 2
-omit = *migrations*
+omit = 
+    */python?.?/*
+    */site-packages/nose/*
+    *__init__*
+    *migrations*
+
+

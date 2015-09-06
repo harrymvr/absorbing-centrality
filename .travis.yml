@@ -30,10 +30,6 @@ install:
   - conda install pip setuptools nose
   - pip install -U coveralls
   - python setup.py install
-script:
-    - nosetests --with-coverage --cover-package=absorbing_centrality --logging-level=INFO
-notifications:
-  email:
-    on_success: never
-    on_failure: never
-
+script: 
+  - nosetests --with-coverage --cover-package=absorbing_centrality --logging-level=INFO
+  - coveralls
