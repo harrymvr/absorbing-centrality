@@ -41,13 +41,23 @@ For instructions on how to use the package, consult the documentation_.
 Development
 -----------
 
-To run all the tests run
+To run all the tests for the code, you will need tox_ -- check its webpage for instructions on how to install it.
+
+.. _tox: https://testrun.org/tox/latest/
+
+Once tox_ is installed, use your terminal to enter the directory with the local copy of the code (here it's named '*absorbing-centrality*') and simply type the following command.
 
 ::
 
-    tox
+    absorbing-centrality $ tox
 
-Distributed under the Open Source Initiative (ISC) license; see LICENSE
+If everything goes well, you'll receive a congratulatory message. 
+
+
+Note that the code is distributed under the Open Source Initiative (ISC) license.
+For the exact terms of distribution, see the LICENSE_.
+
+.. _LICENSE: ./LICENSE
 
 ::
 
