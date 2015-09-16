@@ -34,9 +34,9 @@ You can install the *absorbing_centrality* package by executing the following co
 Documentation
 -------------
 
-For instructions on how to use the package, consult the documentation_.
+For instructions on how to use the package, consult `its documentation`__.
 
-.. _documentation https://absorbing-centrality.readthedocs.org/
+__ https://absorbing-centrality.readthedocs.org/
 
 Development
 -----------
