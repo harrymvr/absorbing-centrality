@@ -4,10 +4,16 @@ Absorbing Random-Walk Centrality
 
 |docs| |travis| |coveralls|
     
-This is an implementation of the absorbing random-walk centrality measure for 
-nodes in graphs.
+This is an implementation of the *absorbing random-walk centrality* measure for 
+nodes in graphs. For the definition of the measure, as well as a study of the
+related optimization problem and algorithmic techniques, please see the pre-print
+publication on arXiv_. A short version of this paper will appear in the
+`ICDM 2015`__.
 
-To cite this work, use
+.. _arXiv: http://arxiv.org/abs/1509.02533
+__ http://icdm2015.stonybrook.edu/
+
+To cite this work, please use
 
 ::
 
@@ -19,6 +25,8 @@ To cite this work, use
 Installation
 ------------
 
+You can install the *absorbing_centrality* package by executing the following command in a terminal.
+
 ::
 
    pip install git+https://github.com/harrymvr/absorbing-centrality#Egg=absorbing_centrality
@@ -26,12 +34,14 @@ Installation
 Documentation
 -------------
 
-https://absorbing-centrality.readthedocs.org/
+For instructions on how to use the package, consult the documentation_.
+
+.. _documentation https://absorbing-centrality.readthedocs.org/
 
 Development
 -----------
 
-To run the all tests run
+To run all the tests run
 
 ::
 
