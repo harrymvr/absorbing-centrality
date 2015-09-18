@@ -9,4 +9,4 @@ from .graph_helpers import (absorbing_centrality,
                             update_fundamental_matrix)
 from .exceptions import CanonicalizationError
 
-__version__ = '0.1'
+__version__ = '0.1.0'

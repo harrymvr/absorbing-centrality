@@ -2,7 +2,7 @@
 Changelog
 =========
 
-0.1 (2015-08-31)
+0.1.0 (2015-08-31)
 -----------------------------------------
 
-* Skeleton of the package.
+* Working version of the package.

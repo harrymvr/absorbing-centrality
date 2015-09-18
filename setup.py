@@ -25,7 +25,7 @@ tests_require=['nose']
 
 setup(
     name='absorbing_centrality',
-    version='0.1',
+    version='0.1.0',
     license='ISC',
     description='An implementation of the absorbing random-walk centrality measure for graphs.',
     long_description='%s\n%s' % (read('README.rst'), re.sub(':[a-z]+:`~?(.*?)`', r'``\1``', read('CHANGELOG.rst'))),
@@ -44,25 +44,23 @@ setup(
         'Intended Audience :: Science/Research',
         'Operating System :: Unix',
         'Operating System :: POSIX',
+        'Programming Language :: Python :: 2',
         'Programming Language :: Python :: 2.7',
+        'Programming Language :: Python :: 3',
         'Programming Language :: Python :: 3.4',
         'License :: OSI Approved :: ISC License (ISCL)',
         'Topic :: Scientific/Engineering :: Information Analysis',
         'Natural Language :: English'
     ],
-    keywords=[
-        # eg: 'keyword1', 'keyword2', 'keyword3',
+    keywords=['graph mining', 'node centrality', 'random walks', 'algorithms',
+              'data mining'
     ],
     install_requires=[
-        # eg: 'aspectlib==1.1.1', 'six>=1.7',
         'networkx>=1.9.1',
         'numpy==1.9.2',
         'scipy==0.16'
     ],
     extras_require={
-        # eg:
-        #   'rst': ['docutils>=0.11'],
-        #   ':python_version=="2.6"': ['argparse'],
         'tests': tests_require,
     },
 )
