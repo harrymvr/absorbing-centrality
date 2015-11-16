@@ -29,7 +29,7 @@ You can install the *absorbing_centrality* package by executing the following co
 
 ::
 
-   pip install git+https://github.com/harrymvr/absorbing-centrality#Egg=absorbing_centrality
+   pip install absorbing_centrality
 
 Documentation
 -------------
