@@ -38,6 +38,12 @@ For instructions on how to use the package, consult `its documentation`__.
 
 __ https://absorbing-centrality.readthedocs.org/
 
+Example
+--------
+You can find an example of how to use this package in `this IPython notebook`__.
+
+__ https://github.com/harrymvr/absorbing-centrality/blob/master/examples/example.ipynb
+
 Development
 -----------
 
